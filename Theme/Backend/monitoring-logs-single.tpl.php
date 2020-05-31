@@ -85,7 +85,7 @@ echo $this->getData('nav')->render(); ?>
                         <td colspan="3">
                             <pre><?= $this->printHtml(\json_encode($log['backtrace'], \JSON_PRETTY_PRINT)); ?></pre>
                     <tr>
-                        <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
+                        <td colspan="3" style="padding-top: 10px"><a tabindex="0" class="button" target="_blank"
                             href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= $this->printHtml(\urlencode($log['message'])); ?>&details=<?= $this->printHtml(\urlencode($details)); ?>"><?= $this->getHtml('Report') ?></a>
                 </table>
             </div>
