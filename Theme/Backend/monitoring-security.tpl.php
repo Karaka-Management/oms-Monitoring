@@ -41,15 +41,15 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="default">
-                <caption><?= $this->getHtml('Inspection') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                <caption><?= $this->getHtml('Inspection'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('Status') ?>
-                    <td class="wf-100"><?= $this->getHtml('File') ?>
-                    <td><?= $this->getHtml('Unicode') ?>
-                    <td><?= $this->getHtml('Deprecated') ?>
-                    <td><?= $this->getHtml('Modified') ?>
-                    <td><?= $this->getHtml('Integrity') ?>
+                    <td><?= $this->getHtml('Status'); ?>
+                    <td class="wf-100"><?= $this->getHtml('File'); ?>
+                    <td><?= $this->getHtml('Unicode'); ?>
+                    <td><?= $this->getHtml('Deprecated'); ?>
+                    <td><?= $this->getHtml('Modified'); ?>
+                    <td><?= $this->getHtml('Integrity'); ?>
                 <tbody>
                         <?php
                         $files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');

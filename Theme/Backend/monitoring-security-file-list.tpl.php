@@ -28,13 +28,13 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="box col-xs-12 wf-100">
         <table class="default">
-            <caption><?= $this->getHtml('Files') ?><i class="fa fa-download floatRight download btn"></i></caption>
+            <caption><?= $this->getHtml('Files'); ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
             <tr>
-                <td class="wf-100"><?= $this->getHtml('File') ?>
-                <td><?= $this->getHtml('Unicode') ?>
-                <td><?= $this->getHtml('Deprecated') ?>
-                <td><?= $this->getHtml('Integrity') ?>
+                <td class="wf-100"><?= $this->getHtml('File'); ?>
+                <td><?= $this->getHtml('Unicode'); ?>
+                <td><?= $this->getHtml('Deprecated'); ?>
+                <td><?= $this->getHtml('Integrity'); ?>
                     <tbody>
                     <?php foreach ($files as $key => $file) : $source = \file_get_contents($file); ?>
             <tr>
