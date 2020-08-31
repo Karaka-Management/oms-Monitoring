@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\Rest;
 use phpOMS\Security\PhpCode;
