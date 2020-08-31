@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Integrity'); ?>
                 <tbody>
                         <?php
-                        $files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
+                        $files                               = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file); ?>
                         <tr>
                             <td>
@@ -71,7 +71,7 @@ echo $this->getData('nav')->render(); ?>
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
                         <?php
-                        $files = Directory::listByExtension(__DIR__ . '/../../../../Model/', 'php', 'tests(\/|\\\)');
+                        $files                               = Directory::listByExtension(__DIR__ . '/../../../../Model/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../Model/' . $file); ?>
                         <tr>
                             <td>
@@ -90,7 +90,7 @@ echo $this->getData('nav')->render(); ?>
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
                         <?php
-                        $files = Directory::listByExtension(__DIR__ . '/../../../../Modules/', 'php', 'tests(\/|\\\)');
+                        $files                               = Directory::listByExtension(__DIR__ . '/../../../../Modules/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../Modules/' . $file); ?>
                         <tr>
                             <td>
