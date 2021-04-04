@@ -47,6 +47,8 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
 
+        $view->setData('logger', $this->app->logger);
+
         return $view;
     }
 
@@ -68,6 +70,8 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
 
+        $view->setData('logger', $this->app->logger);
+
         return $view;
     }
 
@@ -88,6 +92,8 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
+
+        $view->setData('logger', $this->app->logger);
 
         return $view;
     }
