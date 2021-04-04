@@ -26,8 +26,8 @@ $fileHashs = \file_get_contents(__DIR__ . '/../../../../hashs.txt'); /* Rest::re
 )->getBody(); */
 
 $hashs = [];
-$fp = \fopen("php://memory", 'r+');
-\fputs($fp, $fileHashs);
+$fp    = \fopen("php://memory", 'r+');
+\fwrite($fp, $fileHashs);
 \rewind($fp);
 
 while($line = \fgets($fp)){
@@ -37,9 +37,9 @@ while($line = \fgets($fp)){
   }
 
   $whitespace = \stripos($line, ' ');
-  $length = \strlen($line);
-  $hash = \substr($line, 0, $whitespace);
-  $file = \trim(\substr($line, $whitespace + 2), '.\\/');
+  $length     = \strlen($line);
+  $hash       = \substr($line, 0, $whitespace);
+  $file       = \trim(\substr($line, $whitespace + 2), '.\\/');
 
   $hashs[$file] = $hash;
 }
