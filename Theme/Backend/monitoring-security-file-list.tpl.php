@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="box col-xs-12 wf-100">
-        <table class="default">
+        <table class="default sticky">
             <caption><?= $this->getHtml('Files'); ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
             <tr>
