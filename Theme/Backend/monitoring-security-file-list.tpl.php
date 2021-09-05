@@ -26,6 +26,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="box col-xs-12 wf-100">
+        <div class="slider">
         <table class="default sticky">
             <caption><?= $this->getHtml('Files'); ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
@@ -52,5 +53,6 @@ echo $this->getData('nav')->render(); ?>
                     ); ?>
                     <?php endforeach; ?>
         </table>
+        </div>
     </div>
 </div>
