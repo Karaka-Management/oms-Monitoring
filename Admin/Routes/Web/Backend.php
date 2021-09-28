@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringGeneral',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DASHBOARD,
             ],
@@ -34,7 +34,7 @@ return [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringLogList',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::LOG,
             ],
@@ -45,7 +45,7 @@ return [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringLogEntry',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::LOG,
             ],
@@ -56,7 +56,7 @@ return [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringSecurityDashboard',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::SECURITY,
             ],
@@ -67,7 +67,7 @@ return [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringSecurityFileList',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::SECURITY,
             ],
