@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 return ['Navigation' => [
-    'Logs'       => 'Logs',
-    'Monitoring' => 'Monitoring',
-    'Security'   => 'Security',
+    'Logs'       => 'การบันทึก',
+    'Monitoring' => 'การตรวจสอบ',
+    'Security'   => 'ความปลอดภัย',
 ]];

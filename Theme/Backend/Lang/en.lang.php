@@ -40,6 +40,7 @@ return ['Monitoring' => [
     'MemoryLimit'       => 'Memory Limit',
     'Message'           => 'Message',
     'Modified'          => 'Modified',
+    'Modules'           => '',
     'NG'                => 'NG',
     'Notices'           => 'Notices',
     'OK'                => 'OK',
