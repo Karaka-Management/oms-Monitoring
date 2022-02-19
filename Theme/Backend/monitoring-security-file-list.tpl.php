@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
                         \md5(
                             Rest::request(
                                 new HttpRequest(
-                                    new HttpUri('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php')
+                                    new HttpUri('https://raw.githubusercontent.com/Karaka-Management/phpOMS/develop/Account/Account.php')
                                 )
                             )->getBody()
                         )
