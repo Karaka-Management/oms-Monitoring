@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="portlet-body">
                 <table class="list wf-100">
                     <tbody>
-                        <tr><td><?= $this->printHtml('PHP'); ?><td><?= $this->printHtml(\phpversion()); ?>
+                        <tr><td><?= $this->printHtml('PHP'); ?><td><?= $this->printHtml(\PHP_VERSION); ?>
                         <tr><td><?= $this->printHtml('mbstring'); ?><td><?= $this->printHtml((string) \phpversion('mbstring')); ?>
                         <tr><td><?= $this->printHtml('imap'); ?><td><?= $this->printHtml((string) \phpversion('imap')); ?>
                         <tr><td><?= $this->printHtml('bcmath'); ?><td><?= $this->printHtml((string) \phpversion('bcmath')); ?>

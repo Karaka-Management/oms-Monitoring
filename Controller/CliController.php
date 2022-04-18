@@ -21,7 +21,6 @@ use phpOMS\Message\Mail\Email;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\NullView;
-use phpOMS\Views\View;
 
 /**
  * Monitoring controller class.
@@ -48,7 +47,6 @@ final class CliController extends Controller
      */
     public function cliLogReport(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-
         //return new NullView();
 
         $emailSettings = $this->app->appSettings->get(
