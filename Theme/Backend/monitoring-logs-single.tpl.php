@@ -16,78 +16,86 @@ declare(strict_types=1);
  * @var \phpOMS\Views\View $this
  */
 
-$log              = $this->app->logger->getByLine((int) $this->request->getData('id') ?? 1);
-$temp             = \trim($log['backtrace']);
+$logger = $this->getData('logger');
+
+$log              = $logger->getByLine((int) $this->request->getData('id') ?? 1);
+$temp             = \trim($log[9]);
 $log['backtrace'] = \json_decode($temp, true);
 
-$details = '* Uri: `' . \trim($log['path']) . "`\n"
-    . '* Level: `' . \trim($log['level']) . "`\n"
-    . '* Message: `' . \trim($log['message']) . "`\n"
-    . '* File: `' . \trim($log['file']) . "`\n"
-    . '* Line: `' . \trim($log['line']) . "`\n"
-    . '* Version: `' . \trim($log['version']) . "`\n"
-    . '* OS: `' . \trim($log['os']) . "`\n\n"
-    . "Backtrace: \n\n```\n" . \json_encode($log['backtrace'], \JSON_PRETTY_PRINT);
+$details = '* Uri: `' . \trim($log[8]) . "`\n"
+    . '* Level: `' . \trim($log[1]) . "`\n"
+    . '* File: `' . \trim($log[8]) . "`\n"
+    . '* Line: `' . \trim($log[3]) . "`\n"
+    . '* Version: `' . \trim($log[4]) . "`\n"
+    . '* OS: `' . \trim($log[5]) . "`\n\n"
+    . "**Message:**\n\n```\n" . \trim($log[7]) . "\n```\n\n"
+    . "**Backtrace:**\n\n```\n" . \json_encode(\json_decode($log[9]), \JSON_PRETTY_PRINT) . "\n";
 
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
-    <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Logs'); ?></h1></header>
+    <div class="col-xs-12">
+        <section class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Logs'); ?></div>
+            <div class="portlet-body">
+                    <div class="form-group">
+                        <label><i class="fa fa-anchor"></i> <?= $this->getHtml('ID', '0', '0'); ?></label>
+                        <label><?= $this->printHtml((string) ($this->request->getData('id') ?? 0)); ?></label>
+                    </div>
 
-            <div class="inner">
-                <table class="list w-100">
-                    <tr>
-                        <td><?= $this->getHtml('ID', '0', '0'); ?>
-                        <td><i class="fa fa-anchor"></i>
-                        <td class="wf-100"><?= $this->printHtml((int) $this->request->getData('id') ?? 0); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Time'); ?>
-                        <td><i class="fa fa-clock-o"></i>
-                        <td><?= $this->printHtml($log['datetime']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Uri'); ?>
-                        <td><i class="fa fa-globe"></i>
-                        <td><?= $this->printHtml($log['path']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Source'); ?>
-                        <td><i class="fa fa-wifi"></i>
-                        <td><?= $this->printHtml($log['ip']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Level'); ?>
-                        <td>
-                            <i class="fa fa-<?= $this->printHtml(\in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i>
-                        <td><?= $this->printHtml($log['level']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Message'); ?>
-                        <td><i class="fa fa-commenting"></i>
-                        <td><?= $this->printHtml($log['message']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('File'); ?>
-                        <td><i class="fa fa-file"></i>
-                        <td><?= $this->printHtml($log['file']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Line'); ?>
-                        <td><i class="fa fa-commenting"></i>
-                        <td><?= $this->printHtml($log['line']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('Version'); ?>
-                        <td><i class="fa fa-pencil"></i>
-                        <td><?= $this->printHtml($log['version']); ?>
-                    <tr>
-                        <td><?= $this->getHtml('OS'); ?>
-                        <td><i class="fa fa-laptop"></i>
-                        <td><?= $this->printHtml($log['os']); ?>
-                    <tr>
-                        <td colspan="3"><?= $this->getHtml('Backtrace'); ?>
-                    <tr>
-                        <td colspan="3">
-                            <pre><?= $this->printHtml(\json_encode($log['backtrace'], \JSON_PRETTY_PRINT)); ?></pre>
-                    <tr>
-                        <td colspan="3" style="padding-top: 10px"><a tabindex="0" class="button" target="_blank"
-                            href="https://gitreports.com/issue/Karaka/Karaka/?name=Guest&issue_title=<?= $this->printHtml(\urlencode($log['message'])); ?>&details=<?= $this->printHtml(\urlencode($details)); ?>"><?= $this->getHtml('Report'); ?></a>
-                </table>
+                    <div class="form-group">
+                        <label><i class="fa fa-clock-o"></i <?= $this->getHtml('Time'); ?>></label>
+                        <label><?= $this->printHtml($log[0]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-globe"></i> <?= $this->getHtml('Uri'); ?></label>
+                        <label><?= $this->printHtml($log[8]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-wifi"></i> <?= $this->getHtml('Source'); ?></label>
+                        <label><?= $this->printHtml($log[2]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-<?= $this->printHtml(\in_array($log[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i> <?= $this->getHtml('Level'); ?></label>
+                        <label><?= $this->printHtml($log[1]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-commenting"></i> <?= $this->getHtml('Message'); ?></label>
+                        <label><?= $this->printHtml($log[7]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-file-o"></i> <?= $this->getHtml('File'); ?></label>
+                        <label><?= $this->printHtml($log[8]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-commenting"></i> <?= $this->getHtml('Line'); ?></label>
+                        <label><?= $this->printHtml($log[3]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-laptop"></i> <?= $this->getHtml('OS'); ?></label>
+                        <label><?= $this->printHtml($log[5]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-pencil"></i> <?= $this->getHtml('Version'); ?></label>
+                        <label><?= $this->printHtml($log[4]); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= $this->getHtml('Backtrace'); ?></label>
+                        <pre><?= $this->printHtml(\json_encode($log[9], \JSON_PRETTY_PRINT)); ?></pre>
+                    </div>
+                <div class="portlet-foot">
+                    <a tabindex="0" class="button" target="_blank"
+                        href="https://github.com/Karaka-Management/Karaka/issues/new?body=<?= $this->printHtml(\rawurlencode($details)); ?>"><?= $this->getHtml('Report'); ?></a>
+                </div>
             </div>
         </section>
     </div>

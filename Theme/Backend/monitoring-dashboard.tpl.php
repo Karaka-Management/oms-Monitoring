@@ -34,12 +34,52 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><?= $this->getHtml('MemoryLimit'); ?><td><?= $this->printHtml(\ini_get('memory_limit')); ?>
                         <tr><td><?= $this->getHtml('SystemRAM'); ?><td><?= $this->printHtml((string) (SystemUtils::getRAM() / (1024))); ?> MB
                         <tr><td><?= $this->getHtml('CPUUsage'); ?><td><?= $this->printHtml((string) SystemUtils::getCpuUsage()); ?>%
+                        <tr><td><?= $this->printHtml('User'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('whoami', '')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('Directory'); ?><td><?= $this->printHtml(\realpath(__DIR__ . '/../../../../')); ?>
                 </table>
             </div>
         </section>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <section class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('PHP'); ?></div>
+            <div class="portlet-body">
+                <table class="list wf-100">
+                    <tbody>
+                        <tr><td><?= $this->printHtml('PHP'); ?><td><?= $this->printHtml(\phpversion()); ?>
+                        <tr><td><?= $this->printHtml('mbstring'); ?><td><?= $this->printHtml((string) \phpversion('mbstring')); ?>
+                        <tr><td><?= $this->printHtml('imap'); ?><td><?= $this->printHtml((string) \phpversion('imap')); ?>
+                        <tr><td><?= $this->printHtml('bcmath'); ?><td><?= $this->printHtml((string) \phpversion('bcmath')); ?>
+                        <tr><td><?= $this->printHtml('xdebug'); ?><td><?= $this->printHtml((string) \phpversion('xdebug')); ?>
+                        <tr><td><?= $this->printHtml('memcached'); ?><td><?= $this->printHtml((string) \phpversion('memcached')); ?>
+                        <tr><td><?= $this->printHtml('redis'); ?><td><?= $this->printHtml((string) \phpversion('redis')); ?>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+        <section class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Tools'); ?></div>
+            <div class="portlet-body">
+                <table class="list wf-100">
+                    <tbody>
+                        <tr><td><?= $this->printHtml('pdftotext'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('pdftotext', '-v')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('pdftoppm'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('pdftoppm', '-v')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('tesseract'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('tesseract', '-v')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('apache2'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('apache2', '-v')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('mysql'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('mysql', '--version')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('postgresql'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('psql', '--version')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('sqlsrv'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('sqlsrv', '--version')[0] ?? '')); ?>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
         <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Logs'); ?></div>
             <div class="portlet-body">
@@ -59,14 +99,14 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Penetrators'); ?></div>
             <div class="portlet-body">
                 <table class="list wf-100">
                     <tbody>
                     <?php foreach ($penetrators as $ip => $count) : ?>
-                    <tr><td><?= $this->printHtml($ip); ?><td><?= $this->printHtml($count); ?>
+                    <tr><td><?= $this->printHtml($ip); ?><td><?= $this->printHtml((string) $count); ?>
                     <?php endforeach; ?>
                 </table>
             </div>
