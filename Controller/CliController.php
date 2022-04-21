@@ -45,10 +45,11 @@ final class CliController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function cliLogReport(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function cliLogReport(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         //return new NullView();
 
+        /** @var array<string, \Model\Setting> $emailSettings */
         $emailSettings = $this->app->appSettings->get(
             names: [
                 SettingsEnum::MAIL_SERVER_ADDR,
@@ -60,8 +61,10 @@ final class CliController extends Controller
             module: 'Admin'
         );
 
+        /** @var \Modules\Admin\Models\Account $account */
         $account = AccountMapper::get()->where('id', 1)->execute();
 
+        /** @var \phpOMS\Message\Mail\MailHandler $mailHandler */
         $mailHandler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
 
         $mail = new Email();

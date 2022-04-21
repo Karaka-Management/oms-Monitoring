@@ -42,7 +42,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-dashboard');
@@ -65,7 +65,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs');
@@ -88,7 +88,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-single');
@@ -111,7 +111,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMonitoringSecurityDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringSecurityDashboard(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-security');
