@@ -66,6 +66,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Inspection'); ?><i class="fa fa-download floatRight download btn"></i></div>
+            <div class="slider">
             <table id="fileList" class="default">
                 <thead>
                 <tr>
@@ -171,8 +172,10 @@ echo $this->getData('nav')->render(); ?>
                             <td><?= $integrity ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
                         <?php
-                        $files                               = Directory::listByExtension(__DIR__ . '/../../../../Modules/', 'php', 'tests(\/|\\\)');
-                        foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../Modules/' . $file); ?>
+                        $files = Directory::listByExtension(__DIR__ . '/../../../../Modules/', 'php', 'tests(\/|\\\)');
+                        foreach ($files as $file) :
+                            $content = \file_get_contents(__DIR__ . '/../../../../Modules/' . $file);
+                        ?>
                         <tr>
                             <td><?= ($unicode = PhpCode::hasUnicode($content)) || ($deprecated = PhpCode::hasDeprecatedFunction($content)) || !($integrity = PhpCode::validateFileIntegrity(
                                     __DIR__ . '/../../../../Modules/' . $file,
@@ -185,6 +188,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><?= $integrity ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
             </table>
+            </div>
         </div>
     </div>
 </div>
