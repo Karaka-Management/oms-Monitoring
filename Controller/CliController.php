@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Controller;
 
-use Modules\Admin\Models\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\SettingsEnum;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\Mail\Email;
 use phpOMS\Message\RequestAbstract;
