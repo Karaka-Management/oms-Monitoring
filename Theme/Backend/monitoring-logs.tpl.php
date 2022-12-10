@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Message'); ?>
                 <tbody>
                         <?php foreach ($logs as $key => $value) :
-                        $url = \phpOMS\Uri\UriFactory::build('admin/monitoring/log/single?{?}&id=' . $key); ?>
+                        $url = \phpOMS\Uri\UriFactory::build('{/lang}/{/app}/admin/monitoring/log/single?{?}&id=' . $key); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href=<?= $url; ?>><i class="fa fa-clock-o"></i> <?= $this->printHtml($value[0] ?? ''); ?></a>
                     <td><a href=<?= $url; ?>><i class="fa fa-<?= $this->printHtml(\in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i> <?= $this->printHtml($value[1] ?? ''); ?></a>
