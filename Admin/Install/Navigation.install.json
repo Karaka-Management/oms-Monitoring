@@ -8,7 +8,7 @@
         "uri": "{/lang}/{/app}/admin/monitoring/general?{?}",
         "target": "self",
         "icon": null,
-        "order": 50,
+        "order": 70,
         "from": "Monitoring",
         "permission": { "permission": 2, "category": null, "element": null },
         "parent": 1000101001,
