@@ -144,13 +144,18 @@ echo $this->getData('nav')->render(); ?>
                         </label>
                 <tbody>
                         <?php
-                        $files                               = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
-                        foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file); ?>
+                        $files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
+                        foreach ($files as $file) :
+                            $content = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file);
+                            $unicode = PhpCode::hasUnicode($content);
+                            $deprecated = PhpCode::hasDeprecatedFunction($content);
+                            $integrity = PhpCode::validateFileIntegrity(
+                                __DIR__ . '/../../../../phpOMS/' . $file,
+                                $hashs['phpOMS/' . $file] ?? ''
+                            );
+                        ?>
                         <tr>
-                            <td><?= ($unicode = PhpCode::hasUnicode($content)) || ($deprecated = PhpCode::hasDeprecatedFunction($content)) || !($integrity = PhpCode::validateFileIntegrity(
-                                    __DIR__ . '/../../../../phpOMS/' . $file,
-                                    $hashs['phpOMS/' . $file] ?? ''
-                                )) ? $this->getHtml('NG') : $this->getHtml('OK'); ?>
+                            <td><?= $unicode || $deprecated || !$integrity ? $this->getHtml('NG') : $this->getHtml('OK'); ?>
                             <td><?= $file; ?>
                             <td><?= $unicode ? $this->getHtml('NG') : $this->getHtml('OK'); ?>
                             <td><?= $deprecated ? $this->getHtml('NG') : $this->getHtml('OK'); ?>

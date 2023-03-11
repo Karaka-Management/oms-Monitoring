@@ -68,20 +68,20 @@ final class CliController extends Controller
         $mailHandler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
 
         $mail = new Email();
-        $mail->setFrom($emailSettings[SettingsEnum::MAIL_SERVER_ADDR . '::Admin']->content, 'Karaka');
+        $mail->setFrom($emailSettings[SettingsEnum::MAIL_SERVER_ADDR . ':::Admin']->content, 'Karaka');
         $mail->addTo('spl1nes.com@googlemail.com', \trim($account->name1 . ' ' . $account->name2 . ' ' . $account->name3));
         $mail->subject = 'Log report';
         $mail->body    = '';
         $mail->msgHTML('Attached please find the daily log report');
         $mail->addAttachment(__DIR__ . '/../../../humans.txt');
 
-        if (!empty($emailSettings[SettingsEnum::MAIL_SERVER_CERT . '::Admin']->content ?? '')
-            && !empty($emailSettings[SettingsEnum::MAIL_SERVER_KEY . '::Admin']->content ?? '')
+        if (!empty($emailSettings[SettingsEnum::MAIL_SERVER_CERT . ':::Admin']->content ?? '')
+            && !empty($emailSettings[SettingsEnum::MAIL_SERVER_KEY . ':::Admin']->content ?? '')
         ) {
             $mail->sign(
-                $emailSettings[SettingsEnum::MAIL_SERVER_CERT . '::Admin']->content,
-                $emailSettings[SettingsEnum::MAIL_SERVER_KEY . '::Admin']->content,
-                $emailSettings[SettingsEnum::MAIL_SERVER_KEYPASS . '::Admin']->content
+                $emailSettings[SettingsEnum::MAIL_SERVER_CERT . ':::Admin']->content,
+                $emailSettings[SettingsEnum::MAIL_SERVER_KEY . ':::Admin']->content,
+                $emailSettings[SettingsEnum::MAIL_SERVER_KEYPASS . ':::Admin']->content
             );
         }
 
