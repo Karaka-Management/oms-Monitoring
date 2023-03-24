@@ -6,7 +6,7 @@
  *
  * @package   Modules\Monitoring
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -26,7 +26,7 @@ use phpOMS\Views\NullView;
  * Monitoring controller class.
  *
  * @package Modules\Monitoring
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  * @codeCoverageIgnore
@@ -49,7 +49,7 @@ final class CliController extends Controller
     {
         //return new NullView();
 
-        /** @var array<string, \Model\Setting> $emailSettings */
+        /** @var \Model\Setting[] $emailSettings */
         $emailSettings = $this->app->appSettings->get(
             names: [
                 SettingsEnum::MAIL_SERVER_ADDR,
@@ -68,20 +68,20 @@ final class CliController extends Controller
         $mailHandler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
 
         $mail = new Email();
-        $mail->setFrom($emailSettings[SettingsEnum::MAIL_SERVER_ADDR . ':::Admin']->content, 'Karaka');
-        $mail->addTo('spl1nes.com@googlemail.com', \trim($account->name1 . ' ' . $account->name2 . ' ' . $account->name3));
+        $mail->setFrom($emailSettings[SettingsEnum::MAIL_SERVER_ADDR]->content, 'Karaka');
+        $mail->addTo($emailSettings[SettingsEnum::MAIL_SERVER_ADDR]->content, \trim($account->name1 . ' ' . $account->name2 . ' ' . $account->name3));
         $mail->subject = 'Log report';
         $mail->body    = '';
         $mail->msgHTML('Attached please find the daily log report');
         $mail->addAttachment(__DIR__ . '/../../../humans.txt');
 
-        if (!empty($emailSettings[SettingsEnum::MAIL_SERVER_CERT . ':::Admin']->content ?? '')
-            && !empty($emailSettings[SettingsEnum::MAIL_SERVER_KEY . ':::Admin']->content ?? '')
+        if (!empty($emailSettings[SettingsEnum::MAIL_SERVER_CERT]->content ?? '')
+            && !empty($emailSettings[SettingsEnum::MAIL_SERVER_KEY]->content ?? '')
         ) {
             $mail->sign(
-                $emailSettings[SettingsEnum::MAIL_SERVER_CERT . ':::Admin']->content,
-                $emailSettings[SettingsEnum::MAIL_SERVER_KEY . ':::Admin']->content,
-                $emailSettings[SettingsEnum::MAIL_SERVER_KEYPASS . ':::Admin']->content
+                $emailSettings[SettingsEnum::MAIL_SERVER_CERT]->content,
+                $emailSettings[SettingsEnum::MAIL_SERVER_KEY]->content,
+                $emailSettings[SettingsEnum::MAIL_SERVER_KEYPASS]->content
             );
         }
 
