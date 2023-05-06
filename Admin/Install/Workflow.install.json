@@ -1,0 +1,35 @@
+{
+    "triggers": [
+    ],
+    "actions": {
+        "1000700001": {
+            "name": "Error report",
+            "description": {
+                "en": "Send error report",
+                "de": "Versende Fehlerbericht"
+            },
+            "function_type": "Cli",
+            "function": "cliLogReport",
+            "module": "Monitoring",
+            "inputs": [
+                "email",
+                "{*}"
+            ],
+            "outputs": [
+                "resources[]",
+                "{*}"
+            ],
+            "settings": {
+                "email": {
+                    "type": "input",
+                    "subtype": "text",
+                    "default": null,
+                    "title": {
+                        "en": "Email",
+                        "de": "Email"
+                    }
+                }
+            }
+        }
+    }
+}

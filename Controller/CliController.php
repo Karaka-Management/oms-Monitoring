@@ -47,45 +47,34 @@ final class CliController extends Controller
      */
     public function cliLogReport(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
-        //return new NullView();
+        $handler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
 
-        /** @var \Model\Setting[] $emailSettings */
         $emailSettings = $this->app->appSettings->get(
-            names: [
-                SettingsEnum::MAIL_SERVER_ADDR,
-                SettingsEnum::MAIL_SERVER_CERT,
-                SettingsEnum::MAIL_SERVER_KEY,
-                SettingsEnum::MAIL_SERVER_KEYPASS,
-                SettingsEnum::MAIL_SERVER_TLS,
-            ],
-            module: 'Admin'
+            names: SettingsEnum::MAIL_SERVER_ADDR,
+            module: 'OnlineResourceWatcher'
         );
 
-        /** @var \Modules\Admin\Models\Account $account */
-        $account = AccountMapper::get()->where('id', 1)->execute();
+        $today = new \DateTime('now');
 
-        /** @var \phpOMS\Message\Mail\MailHandler $mailHandler */
-        $mailHandler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
+        $hasErrorReport = \is_file($file = __DIR__ . '/../../../Logs/' . $today->format('Y-m-d') . '.log');
 
+        // @todo: define report email template
         $mail = new Email();
-        $mail->setFrom($emailSettings[SettingsEnum::MAIL_SERVER_ADDR]->content, 'Karaka');
-        $mail->addTo($emailSettings[SettingsEnum::MAIL_SERVER_ADDR]->content, \trim($account->name1 . ' ' . $account->name2 . ' ' . $account->name3));
-        $mail->subject = 'Log report';
-        $mail->body    = '';
-        $mail->msgHTML('Attached please find the daily log report');
-        $mail->addAttachment(__DIR__ . '/../../../humans.txt');
+        $mail->setFrom($emailSettings->content);
+        $mail->addTo($emailSettings->content);
+        $mail->subject = 'Error report';
 
-        if (!empty($emailSettings[SettingsEnum::MAIL_SERVER_CERT]->content ?? '')
-            && !empty($emailSettings[SettingsEnum::MAIL_SERVER_KEY]->content ?? '')
-        ) {
-            $mail->sign(
-                $emailSettings[SettingsEnum::MAIL_SERVER_CERT]->content,
-                $emailSettings[SettingsEnum::MAIL_SERVER_KEY]->content,
-                $emailSettings[SettingsEnum::MAIL_SERVER_KEYPASS]->content
-            );
+        if ($hasErrorReport) {
+            $mail->body = 'Your daily Error report.';
+            $mail->bodyAlt = 'Your daily Error report.';
+
+            $mail->addAttachment($file);
+        } else {
+            $mail->body = 'No errors today.';
+            $mail->bodyAlt = 'No errors today.';
         }
 
-        $mailHandler->send($mail);
+        $handler->send($mail);
 
         return new NullView();
     }
