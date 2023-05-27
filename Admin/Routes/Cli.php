@@ -7,7 +7,7 @@ return [
     '^.*/admin/monitoring/log.*$' => [
         [
             'dest' => '\Modules\Monitoring\Controller\CliController:cliLogReport',
-            'verb' => RouteVerb::PUT,
+            'verb' => RouteVerb::ANY,
         ],
     ],
 ];
