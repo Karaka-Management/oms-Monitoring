@@ -146,10 +146,10 @@ echo $this->getData('nav')->render(); ?>
                         <?php
                         $files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) :
-                            $content = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file);
-                            $unicode = PhpCode::hasUnicode($content);
+                            $content    = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file);
+                            $unicode    = PhpCode::hasUnicode($content);
                             $deprecated = PhpCode::hasDeprecatedFunction($content);
-                            $integrity = PhpCode::validateFileIntegrity(
+                            $integrity  = PhpCode::validateFileIntegrity(
                                 __DIR__ . '/../../../../phpOMS/' . $file,
                                 $hashs['phpOMS/' . $file] ?? ''
                             );

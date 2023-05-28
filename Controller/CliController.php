@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Controller;
 
-use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\SettingsEnum;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\Mail\Email;
@@ -65,12 +64,12 @@ final class CliController extends Controller
         $mail->subject = 'Error report';
 
         if ($hasErrorReport) {
-            $mail->body = 'Your daily Error report.';
+            $mail->body    = 'Your daily Error report.';
             $mail->bodyAlt = 'Your daily Error report.';
 
             $mail->addAttachment($file);
         } else {
-            $mail->body = 'No errors today.';
+            $mail->body    = 'No errors today.';
             $mail->bodyAlt = 'No errors today.';
         }
 
