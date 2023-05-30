@@ -22,7 +22,7 @@ use phpOMS\Uri\HttpUri;
 
 $files = \phpOMS\System\File\Local\Directory(__DIR__ . '/../../../../phpOMS', '^.+\.php$');
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="box col-xs-12 wf-100">

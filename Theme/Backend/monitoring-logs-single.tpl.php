@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @var \phpOMS\Views\View $this
  */
 
-$logger = $this->getData('logger');
+$logger = $this->data['logger'];
 
 $log = $logger->getByLine((int) $this->request->getData('id') ?? 1);
 
@@ -29,7 +29,7 @@ $details = '* Uri: `' . \trim($log[8] ?? '') . "`\n"
     . "**Message:**\n\n```\n" . \trim($log[7] ?? '') . "\n```\n\n"
     . "**Backtrace:**\n\n```\n" . \json_encode(\json_decode($log[9] ?? '{}'), \JSON_PRETTY_PRINT) . "\n";
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

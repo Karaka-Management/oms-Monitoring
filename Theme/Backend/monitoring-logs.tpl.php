@@ -15,11 +15,11 @@ declare(strict_types=1);
 /**
  * @var \phpOMS\Views\View $this
  */
-$logger      = $this->getData('logger');
+$logger      = $this->data['logger'];
 
 $logs = \array_reverse($logger->get(25), true);
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
