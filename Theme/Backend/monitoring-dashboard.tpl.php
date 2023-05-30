@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 use phpOMS\System\SystemUtils;
 
-$logger      = $this->getData('logger');
+$logger      = $this->data['logger'];
 $logs        = $logger->countLogs();
 $penetrators = $logger->getHighestPerpetrator();
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-4">
