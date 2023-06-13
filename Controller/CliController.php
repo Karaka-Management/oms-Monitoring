@@ -48,6 +48,7 @@ final class CliController extends Controller
     {
         $handler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
 
+        /** @var \Model\Setting $emailSettings */
         $emailSettings = $this->app->appSettings->get(
             names: SettingsEnum::MAIL_SERVER_ADDR,
             module: 'OnlineResourceWatcher'
