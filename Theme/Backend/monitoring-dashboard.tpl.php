@@ -43,7 +43,7 @@ echo $this->data['nav']->render(); ?>
 
     <div class="col-xs-12 col-md-4">
         <section class="portlet">
-            <div class="portlet-head"><?= $this->getHtml('PHP'); ?></div>
+            <div class="portlet-head"><?= $this->printHtml('PHP'); ?></div>
             <div class="portlet-body">
                 <table class="list wf-100">
                     <tbody>

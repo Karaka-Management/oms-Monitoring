@@ -57,6 +57,7 @@ return ['Monitoring' => [
     'Theme'             => 'Theme',
     'Time'              => 'Time',
     'Timestamp'         => 'Timestamp',
+    'Tools'             => 'Tools',
     'Total'             => 'Total',
     'Unicode'           => 'Unicode',
     'Uri'               => 'Uri',
