@@ -192,7 +192,8 @@ echo $this->data['nav']->render(); ?>
                             "scales": {
                                 "x": {
                                     "id": "axis-1",
-                                    "display": true
+                                    "display": true,
+                                    "stacked": true
                                 },
                                 "y": {
                                     "id": "axis-2",
@@ -201,7 +202,8 @@ echo $this->data['nav']->render(); ?>
                                     "beginAtZero": true,
                                     "ticks": {
                                         "stepSize": 1
-                                    }
+                                    },
+                                    "stacked": true
                                 }
                             }
                         }
