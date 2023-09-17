@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Controller;
 
+use Modules\Monitoring\Models\ImpressionStat;
 use Modules\Monitoring\Models\ImpressionStatMapper;
 use phpOMS\Message\Http\HttpRequest;
-use phpOMS\Message\Statistic\ImpressionStat;
 use phpOMS\Module\ModuleAbstract;
 
 /**

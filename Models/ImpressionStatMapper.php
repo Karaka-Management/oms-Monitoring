@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Monitoring\Models;
 
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
-use phpOMS\Message\Statistic\ImpressionStat;
 
 /**
  * Item mapper class.
@@ -41,12 +40,11 @@ final class ImpressionStatMapper extends DataMapperFactory
         'monitoring_request_host' => ['name' => 'monitoring_request_host', 'type' => 'string', 'internal' => 'host',],
         'monitoring_request_language' => ['name' => 'monitoring_request_language', 'type' => 'string', 'internal' => 'language',],
         'monitoring_request_country' => ['name' => 'monitoring_request_country', 'type' => 'string', 'internal' => 'country',],
-        'monitoring_request_browser' => ['name' => 'monitoring_request_browser', 'type' => 'string', 'internal' => 'browser',],
         'monitoring_request_path' => ['name' => 'monitoring_request_path', 'type' => 'string', 'internal' => 'path',],
         'monitoring_request_uri' => ['name' => 'monitoring_request_uri', 'type' => 'string', 'internal' => 'uri',],
         'monitoring_request_referer' => ['name' => 'monitoring_request_referer', 'type' => 'string', 'internal' => 'referer',],
-        'monitoring_request_agent' => ['name' => 'monitoring_request_agent', 'type' => 'string', 'internal' => 'agent',],
-        'monitoring_request_datetime' => ['name' => 'monitoring_request_datetime', 'type' => 'int', 'internal' => 'datetime',],
+        'monitoring_request_agent' => ['name' => 'monitoring_request_agent', 'type' => 'string', 'internal' => 'userAgent',],
+        'monitoring_request_datetime' => ['name' => 'monitoring_request_datetime', 'type' => 'DateTime', 'internal' => 'datetime',],
     ];
 
     /**

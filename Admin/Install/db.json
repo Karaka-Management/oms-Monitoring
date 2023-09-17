@@ -87,11 +87,6 @@
                 "foreignTable": "country",
                 "foreignKey": "country_code2"
             },
-            "monitoring_request_browser": {
-                "name": "monitoring_request_browser",
-                "type": "VARCHAR(255)",
-                "null": false
-            },
             "monitoring_request_path": {
                 "name": "monitoring_request_path",
                 "type": "VARCHAR(255)",
@@ -114,7 +109,7 @@
             },
             "monitoring_request_datetime": {
                 "name": "monitoring_request_datetime",
-                "type": "INT",
+                "type": "DATETIME",
                 "null": false
             }
         }

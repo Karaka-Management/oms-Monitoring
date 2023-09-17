@@ -14,23 +14,17 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Models;
 
-use phpOMS\Stdlib\Base\Enum;
+use phpOMS\Message\Http\ImpressionStat as Stat;
 
 /**
- * Permision state enum.
+ * Impression stat class.
  *
  * @package Modules\Monitoring\Models
  * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
-abstract class PermissionCategory extends Enum
+final class ImpressionStat extends Stat
 {
-    public const DASHBOARD = 1;
-
-    public const LOG = 2;
-
-    public const SECURITY = 3;
-
-    public const STATS = 3;
+    public int $id = 0;
 }

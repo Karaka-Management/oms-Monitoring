@@ -29,6 +29,17 @@ return [
             ],
         ],
     ],
+    '^.*/admin/monitoring/stats.*$' => [
+        [
+            'dest'       => '\Modules\Monitoring\Controller\BackendController:viewStats',
+            'verb'       => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::NAME,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionCategory::STATS,
+            ],
+        ],
+    ],
     '^.*/admin/monitoring/log/list.*$' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringLogList',
