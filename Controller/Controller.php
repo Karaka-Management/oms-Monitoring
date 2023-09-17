@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Controller;
 
+use Modules\Monitoring\Models\ImpressionStatMapper;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Statistic\ImpressionStat;
 use phpOMS\Module\ModuleAbstract;
 
 /**
@@ -73,4 +76,16 @@ class Controller extends ModuleAbstract
      * @since 1.0.0
      */
     public static array $dependencies = [];
+
+    public function helperLogRequestStat(HttpRequest $request) : void
+    {
+        if (!$this->active) {
+            return;
+        }
+
+        $stat = new ImpressionStat($request);
+
+        // This is not run through the createModel() function on purpose
+        ImpressionStatMapper::create()->execute($stat);
+    }
 }

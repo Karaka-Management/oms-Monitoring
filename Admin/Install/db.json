@@ -56,5 +56,67 @@
                 "null": false
             }
         }
+    },
+    "monitoring_request": {
+        "name": "monitoring_request",
+        "fields": {
+            "monitoring_request_id": {
+                "name": "monitoring_request_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "monitoring_request_host": {
+                "name": "monitoring_request_host",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "monitoring_request_language": {
+                "name": "monitoring_request_language",
+                "type": "VARCHAR(2)",
+                "null": false,
+                "foreignTable": "language",
+                "foreignKey": "language_639_1"
+            },
+            "monitoring_request_country": {
+                "name": "monitoring_request_country",
+                "type": "VARCHAR(2)",
+                "default": null,
+                "null": true,
+                "foreignTable": "country",
+                "foreignKey": "country_code2"
+            },
+            "monitoring_request_browser": {
+                "name": "monitoring_request_browser",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "monitoring_request_path": {
+                "name": "monitoring_request_path",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "monitoring_request_uri": {
+                "name": "monitoring_request_uri",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "monitoring_request_referer": {
+                "name": "monitoring_request_referer",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "monitoring_request_agent": {
+                "name": "monitoring_request_agent",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "monitoring_request_datetime": {
+                "name": "monitoring_request_datetime",
+                "type": "INT",
+                "null": false
+            }
+        }
     }
 }
