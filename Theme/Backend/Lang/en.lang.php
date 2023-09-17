@@ -18,6 +18,7 @@ return ['Monitoring' => [
     'Backtrace'         => 'Backtrace',
     'CPUUsage'          => 'CPU Usage',
     'Created'           => 'Created',
+    'Daily'             => 'Daily',
     'CreatedBy'         => 'Created By',
     'Criticals'         => 'Criticals',
     'Debug'             => 'Debug',

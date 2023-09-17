@@ -41,6 +41,11 @@ echo $this->data['nav']->render(); ?>
                             ]
                         },
                         "options": {
+                            "plugins": {
+                                "legend": {
+                                    "display": false
+                                }
+                            },
                             "title": {
                                 "display": false,
                                 "text": "<?= $this->getHtml('Daily'); ?>"
