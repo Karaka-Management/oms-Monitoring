@@ -26,5 +26,11 @@ use phpOMS\Message\Http\ImpressionStat as Stat;
  */
 final class ImpressionStat extends Stat
 {
+    /**
+     * ID.
+     *
+     * @var int
+     * @since 1.0.0
+     */
     public int $id = 0;
 }

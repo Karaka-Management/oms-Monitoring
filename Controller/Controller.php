@@ -77,6 +77,15 @@ class Controller extends ModuleAbstract
      */
     public static array $dependencies = [];
 
+    /**
+     * Create an impression log
+     *
+     * @param HttpRequest $request Request object
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function helperLogRequestStat(HttpRequest $request) : void
     {
         if (!$this->active) {
