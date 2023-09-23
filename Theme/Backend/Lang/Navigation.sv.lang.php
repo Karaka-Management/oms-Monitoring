@@ -16,4 +16,5 @@ return ['Navigation' => [
     'Logs'       => 'Loggar',
     'Monitoring' => 'Övervakning',
     'Security'   => 'säkerhet',
+    'Stats'      => '',
 ]];

@@ -16,4 +16,5 @@ return ['Navigation' => [
     'Logs'       => 'Naplók',
     'Monitoring' => 'Figyelés',
     'Security'   => 'Biztonság',
+    'Stats'      => '',
 ]];

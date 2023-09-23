@@ -16,4 +16,5 @@ return ['Navigation' => [
     'Logs'       => '日志',
     'Monitoring' => '监测',
     'Security'   => '安全',
+    'Stats'      => '',
 ]];

@@ -16,4 +16,5 @@ return ['Navigation' => [
     'Logs'       => 'การบันทึก',
     'Monitoring' => 'การตรวจสอบ',
     'Security'   => 'ความปลอดภัย',
+    'Stats'      => '',
 ]];

@@ -16,4 +16,5 @@ return ['Navigation' => [
     'Logs'       => 'Журналы',
     'Monitoring' => 'Мониторинг',
     'Security'   => 'Безопасность',
+    'Stats'      => '',
 ]];

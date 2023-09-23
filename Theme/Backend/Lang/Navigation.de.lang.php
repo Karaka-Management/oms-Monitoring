@@ -16,5 +16,5 @@ return ['Navigation' => [
     'Logs'       => 'Protokoll',
     'Monitoring' => 'Überwachung',
     'Security'   => 'Sicherheit',
-    'Stats'   => 'Stats',
+    'Stats'      => 'Stats',
 ]];
