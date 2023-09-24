@@ -88,7 +88,7 @@ final class BackendController extends Controller
             ORDER BY date ASC;'
         );
 
-        $view->data['stats']['impressions'] = $query?->execute()->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP) ?? [];
+        $view->data['stats']['impressions'] = $query->execute()?->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP) ?? [];
 
         $query = new Builder($this->app->dbPool->get());
         $query->raw(
@@ -100,7 +100,7 @@ final class BackendController extends Controller
 
         $view->data['stats']['country'] = [];
 
-        $temp = $query?->execute()->fetchAll() ?? [];
+        $temp = $query->execute()?->fetchAll() ?? [];
         foreach ($temp as $t) {
             if (!isset($view->data['stats']['country'][$t['country']])) {
                 $view->data['stats']['country'][$t['country']] = [];
@@ -116,7 +116,7 @@ final class BackendController extends Controller
             GROUP BY monitoring_request_agent;'
         );
 
-        $view->data['stats']['browser'] = $query?->execute()->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP) ?? [];
+        $view->data['stats']['browser'] = $query->execute()?->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP) ?? [];
 
         $query = new Builder($this->app->dbPool->get());
         $query->raw(
@@ -128,7 +128,7 @@ final class BackendController extends Controller
 
         $view->data['stats']['domain'] = [];
 
-        $temp = $query?->execute()->fetchAll() ?? [];
+        $temp = $query->execute()?->fetchAll() ?? [];
         foreach ($temp as $t) {
             if (!isset($view->data['stats']['domain'][$t['host']])) {
                 $view->data['stats']['domain'][$t['host']] = [];
