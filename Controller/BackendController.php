@@ -88,7 +88,7 @@ final class BackendController extends Controller
             ORDER BY date ASC;'
         );
 
-        $view->data['stats']['impressions'] = $query->execute()?->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP) ?? [];
+        $view->data['stats']['impressions'] = $query->execute()?->fetchAll(\PDO::FETCH_COLUMN | \PDO::FETCH_GROUP) ?? [];
 
         $query = new Builder($this->app->dbPool->get());
         $query->raw(
@@ -116,7 +116,7 @@ final class BackendController extends Controller
             GROUP BY monitoring_request_agent;'
         );
 
-        $view->data['stats']['browser'] = $query->execute()?->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP) ?? [];
+        $view->data['stats']['browser'] = $query->execute()?->fetchAll(\PDO::FETCH_COLUMN | \PDO::FETCH_GROUP) ?? [];
 
         $query = new Builder($this->app->dbPool->get());
         $query->raw(
