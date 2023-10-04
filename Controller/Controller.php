@@ -93,6 +93,7 @@ class Controller extends ModuleAbstract
         }
 
         $stat = new ImpressionStat($request);
+        $stat->end = new \DateTime('now');
 
         // This is not run through the createModel() function on purpose
         ImpressionStatMapper::create()->execute($stat);

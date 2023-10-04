@@ -45,6 +45,7 @@ final class ImpressionStatMapper extends DataMapperFactory
         'monitoring_request_referer'     => ['name' => 'monitoring_request_referer', 'type' => 'string', 'internal' => 'referer',],
         'monitoring_request_agent'       => ['name' => 'monitoring_request_agent', 'type' => 'string', 'internal' => 'userAgent',],
         'monitoring_request_datetime'    => ['name' => 'monitoring_request_datetime', 'type' => 'DateTime', 'internal' => 'datetime',],
+        'monitoring_request_end'         => ['name' => 'monitoring_request_end', 'type' => 'DateTime', 'internal' => 'end',],
     ];
 
     /**
