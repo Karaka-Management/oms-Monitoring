@@ -24,7 +24,7 @@ echo $this->data['nav']->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="portlet">
-            <div class="portlet-head"><?= $this->getHtml('Modules'); ?><i class="lni lni-download download btn end-xs"></i></div>
+            <div class="portlet-head"><?= $this->getHtml('Modules'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
             <table class="default">
                 <thead>
@@ -37,10 +37,10 @@ echo $this->data['nav']->render(); ?>
                         <?php foreach ($logs as $key => $value) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/admin/monitoring/log/single?{?}&id=' . $key); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href=<?= $url; ?>><i class="fa fa-clock-o"></i> <?= $this->printHtml($value[0] ?? ''); ?></a>
-                    <td><a href=<?= $url; ?>><i class="fa fa-<?= $this->printHtml(\in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i> <?= $this->printHtml($value[1] ?? ''); ?></a>
-                    <td><a href=<?= $url; ?>><i class="fa fa-wifi"></i> <?= $this->printHtml($value[2] ?? ''); ?></a>
-                    <td><a href=<?= $url; ?>><i class="fa fa-commenting"></i> <?= $this->printHtml($value[7] ?? ''); ?></a>
+                    <td><a href=<?= $url; ?>><i class="g-icon">schedule</i> <?= $this->printHtml($value[0] ?? ''); ?></a>
+                    <td><a href=<?= $url; ?>><i class="g-icon"><?= $this->printHtml(\in_array($value[1], ['notice', 'info', 'debug']) ? 'info' : 'warning'); ?></i> <?= $this->printHtml($value[1] ?? ''); ?></a>
+                    <td><a href=<?= $url; ?>><i class="g-icon">wifi</i> <?= $this->printHtml($value[2] ?? ''); ?></a>
+                    <td><a href=<?= $url; ?>><i class="g-icon">chat</i> <?= $this->printHtml($value[7] ?? ''); ?></a>
                         <?php endforeach;
                         if (!isset($key)) : ?>
                 <tr>

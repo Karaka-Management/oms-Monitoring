@@ -28,7 +28,7 @@ echo $this->data['nav']->render(); ?>
     <div class="box col-xs-12 wf-100">
         <div class="slider">
         <table class="default sticky">
-            <caption><?= $this->getHtml('Files'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+            <caption><?= $this->getHtml('Files'); ?><i class="g-icon end-xs download btn">download</i></caption>
             <thead>
             <tr>
                 <td class="wf-100"><?= $this->getHtml('File'); ?>

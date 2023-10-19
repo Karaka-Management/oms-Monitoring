@@ -37,52 +37,52 @@ echo $this->data['nav']->render(); ?>
             <div class="portlet-head"><?= $this->getHtml('Logs'); ?></div>
             <div class="portlet-body">
                 <div class="form-group">
-                    <label><i class="fa fa-anchor"></i> <?= $this->getHtml('ID', '0', '0'); ?></label>
+                    <label><i class="g-icon">anchor</i> <?= $this->getHtml('ID', '0', '0'); ?></label>
                     <label><?= $this->printHtml((string) ($this->request->getData('id') ?? 0)); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-clock-o"></i <?= $this->getHtml('Time'); ?>></label>
+                    <label><i class="g-icon">schedule</i <?= $this->getHtml('Time'); ?>></label>
                     <label><?= $this->printHtml($log[0] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-globe"></i> <?= $this->getHtml('Uri'); ?></label>
+                    <label><i class="g-icon">public</i> <?= $this->getHtml('Uri'); ?></label>
                     <label><?= $this->printHtml($log[8] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-wifi"></i> <?= $this->getHtml('Source'); ?></label>
+                    <label><i class="g-icon">wifi</i> <?= $this->getHtml('Source'); ?></label>
                     <label><?= $this->printHtml($log[2] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-<?= $this->printHtml(\in_array($log[1] ?? '', ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i> <?= $this->getHtml('Level'); ?></label>
+                    <label><i class="g-icon"><?= $this->printHtml(\in_array($log[1] ?? '', ['notice', 'info', 'debug']) ? 'info' : 'warning'); ?></i> <?= $this->getHtml('Level'); ?></label>
                     <label><?= $this->printHtml($log[1] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-commenting"></i> <?= $this->getHtml('Message'); ?></label>
+                    <label><i class="g-icon">chat</i> <?= $this->getHtml('Message'); ?></label>
                     <label><?= $this->printHtml($log[7] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-file-o"></i> <?= $this->getHtml('File'); ?></label>
+                    <label><i class="g-icon">article</i> <?= $this->getHtml('File'); ?></label>
                     <label><?= $this->printHtml($log[8] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-commenting"></i> <?= $this->getHtml('Line'); ?></label>
+                    <label><i class="g-icon">chat</i> <?= $this->getHtml('Line'); ?></label>
                     <label><?= $this->printHtml($log[3] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-laptop"></i> <?= $this->getHtml('OS'); ?></label>
+                    <label><i class="g-icon">laptop_mac</i> <?= $this->getHtml('OS'); ?></label>
                     <label><?= $this->printHtml($log[5] ?? ''); ?></label>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa fa-pencil"></i> <?= $this->getHtml('Version'); ?></label>
+                    <label><i class="g-icon">edit</i> <?= $this->getHtml('Version'); ?></label>
                     <label><?= $this->printHtml($log[4] ?? ''); ?></label>
                 </div>
 
