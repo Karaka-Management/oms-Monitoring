@@ -58,7 +58,7 @@ final class CliController extends Controller
 
         $hasErrorReport = \is_file($file = __DIR__ . '/../../../Logs/' . $today->format('Y-m-d') . '.log');
 
-        // @todo: define report email template
+        // @todo define report email template
         $mail = new Email();
         $mail->setFrom($emailSettings->content);
         $mail->addTo($emailSettings->content);
