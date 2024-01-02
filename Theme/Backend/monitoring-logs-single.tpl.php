@@ -82,7 +82,7 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="g-icon">edit</i> <?= $this->getHtml('Version'); ?></label>
+                    <label><i class="g-icon">stylus</i> <?= $this->getHtml('Version'); ?></label>
                     <label><?= $this->printHtml($log[4] ?? ''); ?></label>
                 </div>
 

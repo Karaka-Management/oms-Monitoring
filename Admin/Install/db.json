@@ -62,7 +62,7 @@
         "fields": {
             "monitoring_request_id": {
                 "name": "monitoring_request_id",
-                "type": "INT",
+                "type": "BIGINT",
                 "null": false,
                 "primary": true,
                 "autoincrement": true

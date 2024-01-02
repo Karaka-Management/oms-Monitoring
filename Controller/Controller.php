@@ -92,7 +92,7 @@ class Controller extends ModuleAbstract
             return;
         }
 
-        $stat = new ImpressionStat($request);
+        $stat      = new ImpressionStat($request);
         $stat->end = new \DateTime('now');
 
         // This is not run through the createModel() function on purpose

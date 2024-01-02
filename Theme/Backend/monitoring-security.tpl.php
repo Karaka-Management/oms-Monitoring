@@ -67,7 +67,7 @@ echo $this->data['nav']->render(); ?>
         <div class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Inspection'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
-            <table id="fileList" class="default">
+            <table id="fileList" class="default sticky">
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('Status'); ?>

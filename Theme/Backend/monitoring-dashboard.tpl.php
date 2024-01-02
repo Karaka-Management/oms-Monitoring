@@ -67,11 +67,15 @@ echo $this->data['nav']->render(); ?>
                     <tbody>
                         <tr><td><?= $this->printHtml('pdftotext'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('pdftotext', '-v')[0] ?? '')); ?>
                         <tr><td><?= $this->printHtml('pdftoppm'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('pdftoppm', '-v')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('wkhtmltoimage'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('wkhtmltoimage', '--version')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('wget'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('wget', '--version')[0] ?? '')); ?>
                         <tr><td><?= $this->printHtml('tesseract'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('tesseract', '-v')[0] ?? '')); ?>
                         <tr><td><?= $this->printHtml('apache2'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('apache2', '-v')[0] ?? '')); ?>
                         <tr><td><?= $this->printHtml('mysql'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('mysql', '--version')[0] ?? '')); ?>
                         <tr><td><?= $this->printHtml('postgresql'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('psql', '--version')[0] ?? '')); ?>
                         <tr><td><?= $this->printHtml('sqlsrv'); ?><td><?= $this->printHtml((string) (SystemUtils::runProc('sqlsrv', '--version')[0] ?? '')); ?>
+                        <tr><td><?= $this->printHtml('sqlite3'); ?><td><?= $this->printHtml(\substr((string) (SystemUtils::runProc('sqlite3', '--version')[0] ?? ''), 0, 40)); ?>
+                        <tr><td><?= $this->printHtml('sqlite'); ?><td><?= $this->printHtml(\substr((string) (SystemUtils::runProc('sqlite', '--version')[0] ?? ''), 0, 40)); ?>
                 </table>
             </div>
         </section>

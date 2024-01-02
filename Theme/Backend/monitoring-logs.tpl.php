@@ -26,7 +26,7 @@ echo $this->data['nav']->render(); ?>
         <div class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Modules'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
-            <table class="default">
+            <table class="default sticky">
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('Timestamp'); ?>
