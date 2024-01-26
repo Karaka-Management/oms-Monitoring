@@ -18,7 +18,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/admin/monitoring/general.*$' => [
+    '^.*/admin/monitoring/general(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringGeneral',
             'verb'       => RouteVerb::GET,
@@ -29,7 +29,7 @@ return [
             ],
         ],
     ],
-    '^.*/admin/monitoring/stats.*$' => [
+    '^.*/admin/monitoring/stats(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewStats',
             'verb'       => RouteVerb::GET,
@@ -40,7 +40,7 @@ return [
             ],
         ],
     ],
-    '^.*/admin/monitoring/log/list.*$' => [
+    '^.*/admin/monitoring/log/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringLogList',
             'verb'       => RouteVerb::GET,
@@ -51,7 +51,7 @@ return [
             ],
         ],
     ],
-    '^.*/admin/monitoring/log/single.*$' => [
+    '^.*/admin/monitoring/log/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringLogEntry',
             'verb'       => RouteVerb::GET,
@@ -62,7 +62,7 @@ return [
             ],
         ],
     ],
-    '^.*/admin/monitoring/security/dashboard.*$' => [
+    '^.*/admin/monitoring/security/dashboard(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringSecurityDashboard',
             'verb'       => RouteVerb::GET,
@@ -73,7 +73,7 @@ return [
             ],
         ],
     ],
-    '^.*/admin/monitoring/security/file/list.*$' => [
+    '^.*/admin/monitoring/security/file/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Monitoring\Controller\BackendController:viewMonitoringSecurityFileList',
             'verb'       => RouteVerb::GET,

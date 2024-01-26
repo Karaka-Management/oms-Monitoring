@@ -20,7 +20,7 @@ use phpOMS\Uri\HttpUri;
  * @var \phpOMS\Views\View $this
  */
 
-$files = \phpOMS\System\File\Local\Directory(__DIR__ . '/../../../../phpOMS', '^.+\.php$');
+$files = new \phpOMS\System\File\Local\Directory(__DIR__ . '/../../../../phpOMS', '^.+\.php$');
 
 echo $this->data['nav']->render(); ?>
 
@@ -46,7 +46,7 @@ echo $this->data['nav']->render(); ?>
                         \md5(
                             Rest::request(
                                 new HttpRequest(
-                                    new HttpUri('https://raw.githubusercontent.com/Karaka-Management/phpOMS/develop/Account/Account.php')
+                                    new HttpUri('https://raw.githubusercontent.com/Jingga-Management/phpOMS/develop/Account/Account.php')
                                 )
                             )->getBody()
                         )

@@ -12,8 +12,6 @@
  */
 declare(strict_types=1);
 
-use phpOMS\Message\Http\HttpRequest;
-use phpOMS\Message\Http\Rest;
 use phpOMS\Security\PhpCode;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\File;
@@ -21,7 +19,7 @@ use phpOMS\Uri\HttpUri;
 
 $fileHashs = \file_get_contents(__DIR__ . '/../../../../hashs.txt'); /* Rest::request(
     new HttpRequest(
-        new HttpUri('https://raw.githubusercontent.com/Karaka-Management/Build/master/hashs.txt')
+        new HttpUri('https://raw.githubusercontent.com/Jingga-Management/Build/master/hashs.txt')
     )
 )->getBody(); */
 

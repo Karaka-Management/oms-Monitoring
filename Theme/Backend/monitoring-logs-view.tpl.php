@@ -93,7 +93,7 @@ echo $this->data['nav']->render(); ?>
             </div>
             <div class="portlet-foot">
                 <a tabindex="0" class="button" target="_blank"
-                    href="https://github.com/Karaka-Management/Karaka/issues/new?body=<?= $this->printHtml(\rawurlencode($details)); ?>"><?= $this->getHtml('Report'); ?></a>
+                    href="https://github.com/Jingga-Management/Jingga/issues/new?body=<?= $this->printHtml(\rawurlencode($details)); ?>"><?= $this->getHtml('Report'); ?></a>
             </div>
         </section>
     </div>

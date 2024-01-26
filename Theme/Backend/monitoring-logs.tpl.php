@@ -15,7 +15,7 @@ declare(strict_types=1);
 /**
  * @var \phpOMS\Views\View $this
  */
-$logger      = $this->data['logger'];
+$logger = $this->data['logger'];
 
 $logs = \array_reverse($logger->get(25), true);
 
@@ -35,7 +35,7 @@ echo $this->data['nav']->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Message'); ?>
                 <tbody>
                         <?php foreach ($logs as $key => $value) :
-                        $url = \phpOMS\Uri\UriFactory::build('{/base}/admin/monitoring/log/single?{?}&id=' . $key); ?>
+                        $url = \phpOMS\Uri\UriFactory::build('{/base}/admin/monitoring/log/view?{?}&id=' . $key); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href=<?= $url; ?>><i class="g-icon">schedule</i> <?= $this->printHtml($value[0] ?? ''); ?></a>
                     <td><a href=<?= $url; ?>><i class="g-icon"><?= $this->printHtml(\in_array($value[1], ['notice', 'info', 'debug']) ? 'info' : 'warning'); ?></i> <?= $this->printHtml($value[1] ?? ''); ?></a>

@@ -180,7 +180,7 @@ final class BackendController extends Controller
     public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-single');
+        $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response);
 
         $view->data['logger'] = $this->app->logger;
