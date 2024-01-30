@@ -19,7 +19,7 @@ use phpOMS\Uri\HttpUri;
 
 $fileHashs = \file_get_contents(__DIR__ . '/../../../../hashs.txt'); /* Rest::request(
     new HttpRequest(
-        new HttpUri('https://raw.githubusercontent.com/Jingga-Management/Build/master/hashs.txt')
+        new HttpUri('https://raw.githubusercontent.com/Karaka-Management/Build/master/hashs.txt')
     )
 )->getBody(); */
 
