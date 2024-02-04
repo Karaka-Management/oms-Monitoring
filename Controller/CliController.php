@@ -51,8 +51,12 @@ final class CliController extends Controller
         /** @var \Model\Setting $emailSettings */
         $emailSettings = $this->app->appSettings->get(
             names: SettingsEnum::MAIL_SERVER_ADDR,
-            module: 'OnlineResourceWatcher'
+            module: 'Admin'
         );
+
+        if (empty($emailSettings->content)) {
+            return new NullView();
+        }
 
         $today = new \DateTime('now');
 
