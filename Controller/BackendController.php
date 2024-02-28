@@ -72,9 +72,9 @@ final class BackendController extends Controller
         $head  = $response->data['Content']->head;
         $nonce = $this->app->appSettings->getOption('script-nonce');
 
-        $head->addAsset(AssetType::CSS, 'Resources/chartjs/chart.css');
-        $head->addAsset(AssetType::JSLATE, 'Resources/chartjs/chart.js', ['nonce' => $nonce]);
-        $head->addAsset(AssetType::JSLATE, 'Modules/ItemManagement/Controller.js', ['nonce' => $nonce, 'type' => 'module']);
+        $head->addAsset(AssetType::CSS, 'Resources/chartjs/chart.css?v=' . $this->app->version);
+        $head->addAsset(AssetType::JSLATE, 'Resources/chartjs/chart.js?v=' . $this->app->version, ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/ItemManagement/Controller.js?v=' . self::VERSION, ['nonce' => $nonce, 'type' => 'module']);
 
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-stats');

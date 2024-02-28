@@ -48,24 +48,15 @@ final class CliController extends Controller
     {
         $handler = $this->app->moduleManager->get('Admin', 'Api')->setUpServerMailHandler();
 
-        /** @var \Model\Setting $emailSettings */
-        $emailSettings = $this->app->appSettings->get(
-            names: SettingsEnum::MAIL_SERVER_ADDR,
-            module: 'Admin'
-        );
-
-        if (empty($emailSettings->content)) {
-            return new NullView();
-        }
-
         $today = new \DateTime('now');
 
         $hasErrorReport = \is_file($file = __DIR__ . '/../../../Logs/' . $today->format('Y-m-d') . '.log');
 
         // @todo define report email template
         $mail = new Email();
-        $mail->setFrom($emailSettings->content);
-        $mail->addTo($emailSettings->content);
+        $status = $this->app->moduleManager->get('Admin', 'Api')->setupEmailDefaults($mail);
+
+        $mail->addTo($mail->from[0]);
         $mail->subject = 'Error report';
 
         if ($hasErrorReport) {
@@ -78,7 +69,19 @@ final class CliController extends Controller
             $mail->bodyAlt = 'No errors today.';
         }
 
-        $handler->send($mail);
+        if ($status) {
+            $status = $handler->send($mail);
+        }
+
+        if (!$status) {
+            \phpOMS\Log\FileLogger::getInstance()->error(
+                \phpOMS\Log\FileLogger::MSG_FULL, [
+                    'message' => 'Couldn\'t send error report mail',
+                    'line'    => __LINE__,
+                    'file'    => self::class,
+                ]
+            );
+        }
 
         return new NullView();
     }
