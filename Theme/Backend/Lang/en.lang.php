@@ -67,5 +67,5 @@ return ['Monitoring' => [
     'Uri'               => 'Uri',
     'Version'           => 'Version',
     'Warnings'          => 'Warnings',
-    'WarningLogReport'          => 'When you report this log, please make sure no confidential and personal data is submitted.',
+    'WarningLogReport'  => 'When you report this log, please make sure no confidential and personal data is submitted.',
 ]];

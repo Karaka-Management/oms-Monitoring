@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Controller;
 
-use Modules\Admin\Models\SettingsEnum;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\Mail\Email;
 use phpOMS\Message\RequestAbstract;
@@ -53,7 +52,7 @@ final class CliController extends Controller
         $hasErrorReport = \is_file($file = __DIR__ . '/../../../Logs/' . $today->format('Y-m-d') . '.log');
 
         // @todo define report email template
-        $mail = new Email();
+        $mail   = new Email();
         $status = $this->app->moduleManager->get('Admin', 'Api')->setupEmailDefaults($mail);
 
         $mail->addTo($mail->from[0]);

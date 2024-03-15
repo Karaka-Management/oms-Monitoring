@@ -67,6 +67,6 @@ return ['Monitoring' => [
     'Uri'               => 'Uri',
     'Version'           => 'Ausführung',
     'Warnings'          => 'Warnungen',
-    'WarningLogReport'          => 'Wenn Sie dieses Protokoll melden, achten Sie bitte darauf, dass keine vertraulichen und persönlichen Daten übermittelt werden.
+    'WarningLogReport'  => 'Wenn Sie dieses Protokoll melden, achten Sie bitte darauf, dass keine vertraulichen und persönlichen Daten übermittelt werden.
     ',
 ]];
