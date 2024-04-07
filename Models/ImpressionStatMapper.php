@@ -17,7 +17,7 @@ namespace Modules\Monitoring\Models;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
- * Item mapper class.
+ * ImpressionState mapper class.
  *
  * @package Modules\Monitoring\Models
  * @license OMS License 2.0
