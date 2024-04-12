@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "Monitoring",
-        "uri": "{/base}/admin/monitoring/general?{?}",
+        "uri": "{/base}/admin/monitoring/general",
         "target": "self",
         "icon": null,
         "order": 70,
@@ -19,7 +19,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Dashboard",
-                "uri": "{/base}/admin/monitoring/general?{?}",
+                "uri": "{/base}/admin/monitoring/general",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -34,7 +34,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Logs",
-                "uri": "{/base}/admin/monitoring/log/list?{?}",
+                "uri": "{/base}/admin/monitoring/log/list",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -49,7 +49,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Stats",
-                "uri": "{/base}/admin/monitoring/stats?{?}",
+                "uri": "{/base}/admin/monitoring/stats",
                 "target": "self",
                 "icon": null,
                 "order": 10,
@@ -64,14 +64,15 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Security",
-                "uri": "{/base}/admin/monitoring/security/dashboard?{?}",
+                "uri": "{/base}/admin/monitoring/security/dashboard",
                 "target": "self",
                 "icon": null,
                 "order": 15,
                 "from": "Monitoring",
                 "permission": { "permission": 2, "category": null, "element": null },
                 "parent": 1000706001,
-                "children": []
+                "children": [],
+                "status": 3
             }
         ]
     }
