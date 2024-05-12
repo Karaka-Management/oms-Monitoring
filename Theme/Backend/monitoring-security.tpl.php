@@ -62,7 +62,7 @@ echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Inspection'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
             <table id="fileList" class="default sticky">
@@ -192,6 +192,6 @@ echo $this->data['nav']->render(); ?>
                         <?php endforeach; ?>
             </table>
             </div>
-        </div>
+        </section>
     </div>
 </div>
