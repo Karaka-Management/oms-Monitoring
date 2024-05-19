@@ -24,7 +24,7 @@ use phpOMS\Message\Http\ImpressionStat as Stat;
  * @link    https://jingga.app
  * @since   1.0.0
  */
-final class ImpressionStat extends Stat
+class ImpressionStat extends Stat
 {
     /**
      * ID.
